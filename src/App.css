@@ -1,0 +1,454 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 30px 20px 50px;
+  box-sizing: border-box;
+  gap: 20px;
+  min-height: 100vh;
+}
+
+/* Header */
+.appHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.headerBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-x);
+  background: var(--color-x-bg);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 2px;
+}
+
+.appTitle {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.appSubtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 500px;
+}
+
+/* Status Banner */
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: -4px;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-glass-strong);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.statusX {
+  color: var(--color-x);
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 0 20px var(--color-x-bg);
+}
+
+.statusX .statusDot {
+  animation: pulseDotAnim 1.2s infinite;
+}
+
+.statusO {
+  color: var(--color-o);
+  border-color: rgba(255, 75, 110, 0.4);
+  box-shadow: 0 0 20px var(--color-o-bg);
+}
+
+.statusO .statusDot {
+  animation: pulseDotAnim 1.2s infinite;
+}
+
+.statusWinner {
+  color: var(--color-success);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.statusDraw {
+  color: var(--color-amber);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.lastResultPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-secondary);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.lastResultIcon {
+  color: var(--color-amber);
+}
+
+/* Game Outcome Alert Banner */
+.outcomeBanner {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  border-radius: 18px;
+  box-sizing: border-box;
+  backdrop-filter: blur(16px);
+  animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  gap: 16px;
+}
+
+.winnerBanner {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(6, 78, 59, 0.35) 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.6);
+}
+
+.drawBanner {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(120, 53, 15, 0.35) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.6);
+}
+
+.outcomeContent {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.outcomeIcon {
+  font-size: 2rem;
+}
+
+.outcomeTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.outcomeTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+}
+
+.outcomeCountdown {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.outcomeCountdown strong {
+  color: #fff;
+  font-family: var(--font-mono);
+}
+
+.countdownProgress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.countdownBar {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+  border-radius: 4px;
+  transition: width 1s linear;
+}
+
+.drawBanner .countdownBar {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.outcomeActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nextRoundBtn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.84rem;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  min-height: 40px;
+  width: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+}
+
+.nextRoundBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+}
+
+.pauseTimerBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary) !important;
+  font-size: 0.78rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 8px 14px;
+  min-height: 40px;
+  width: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pauseTimerBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Board Layout Grid */
+.boardWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+}
+
+.boardCenterCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Controls & Player Section */
+.controlwrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.userWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.vsDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-glass-strong);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.vsText {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Action Buttons */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 16px;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-glass-strong);
+  border-radius: 30px;
+  min-height: 48px;
+  width: 160px;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+button:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  transform: none;
+}
+
+.resetBtn {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.resetBtn:hover:not(:disabled) {
+  border-color: #f87171;
+  color: #fecaca;
+  box-shadow: 0 0 20px rgba(248, 113, 113, 0.25);
+}
+
+.undoBtn {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.undoBtn:hover:not(:disabled) {
+  border-color: #60a5fa;
+  color: #bfdbfe;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.25);
+}
+
+.btnIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .boardWrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .scoreboardCard, .moveTrackerCard {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 14px 40px;
+    gap: 16px;
+  }
+
+  .appTitle {
+    font-size: 2.2rem;
+  }
+
+  .boardWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .boardCenterCol {
+    order: -1; /* Board first on mobile */
+  }
+
+  .scoreboardCard, .moveTrackerCard {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .outcomeBanner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .outcomeContent {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .outcomeActions {
+    width: 100%;
+    justify-content: center;
+  }
+}

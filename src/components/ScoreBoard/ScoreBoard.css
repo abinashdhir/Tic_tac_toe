@@ -1,0 +1,182 @@
+.scoreboardCard {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 18px 20px;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s ease;
+}
+
+.scoreboardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scoreboardTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scoreboardIcon {
+  font-size: 1.1rem;
+}
+
+.scoreboardTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.totalGamesBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.scoreGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.scoreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 6px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+
+.scoreItem:hover {
+  transform: translateY(-2px);
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.scoreBadgeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.playerBadge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.badgeX {
+  background: var(--color-x-bg);
+  color: var(--color-x);
+  border: 1px solid var(--color-x);
+}
+
+.badgeO {
+  background: var(--color-o-bg);
+  color: var(--color-o);
+  border: 1px solid var(--color-o);
+}
+
+.badgeDraw {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-draw);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scoreLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.scoreValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  line-height: 1.2;
+  margin: 4px 0 2px;
+}
+
+.itemX .scoreValue {
+  color: var(--color-x);
+  text-shadow: 0 0 12px var(--color-x-glow);
+}
+
+.itemO .scoreValue {
+  color: var(--color-o);
+  text-shadow: 0 0 12px var(--color-o-glow);
+}
+
+.itemDraw .scoreValue {
+  color: var(--color-draw);
+}
+
+.scoreSubtext {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.resetScoreBtn {
+  align-self: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: auto;
+  width: auto;
+}
+
+.resetScoreBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.resetScoreBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .scoreboardCard {
+    max-width: 100%;
+  }
+}

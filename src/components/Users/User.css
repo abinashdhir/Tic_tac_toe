@@ -1,0 +1,213 @@
+.user {
+  height: 160px;
+  width: 150px;
+  margin: 6px;
+  box-sizing: border-box;
+  display: flex;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.userDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  border: 1.5px solid var(--border-glass);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+  padding: 10px 8px 12px;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Turn Indicator */
+.userTurnIndicator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.turnBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 10px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.waitingBadge {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.activeBadge {
+  font-weight: 800;
+}
+
+.playerCardX .activeBadge {
+  color: var(--color-x);
+  background: var(--color-x-bg);
+  border: 1px solid var(--color-x);
+  box-shadow: 0 0 10px var(--color-x-glow);
+}
+
+.playerCardO .activeBadge {
+  color: var(--color-o);
+  background: var(--color-o-bg);
+  border: 1px solid var(--color-o);
+  box-shadow: 0 0 10px var(--color-o-glow);
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulseDotAnim 1.2s infinite;
+}
+
+/* Avatar Graphic */
+.userWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  width: 60px;
+  height: 56px;
+  margin: 4px 0;
+}
+
+.head {
+  border-radius: 50%;
+  border: 4px solid #fff;
+  width: 22px;
+  height: 22px;
+  position: relative;
+  z-index: 2;
+  transition: border-color 0.2s ease;
+}
+
+.body {
+  width: 38px;
+  height: 22px;
+  border: 4px solid #fff;
+  border-bottom: none;
+  position: relative;
+  border-radius: 20px 20px 0 0;
+  margin-top: -3px;
+  transition: border-color 0.2s ease;
+}
+
+.playerSymbolBadge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-family: var(--font-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.playerCardX .playerSymbolBadge {
+  background: var(--color-x);
+  color: #090d16;
+}
+
+.playerCardO .playerSymbolBadge {
+  background: var(--color-o);
+  color: #fff;
+}
+
+/* Info Labels */
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.userName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.userScoreMini {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Active States */
+.activeUser {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.playerCardX.activeUser .userDiv {
+  border-color: var(--color-x);
+  box-shadow: 0 0 24px var(--color-x-glow), inset 0 0 16px var(--color-x-bg);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.playerCardX.activeUser .head,
+.playerCardX.activeUser .body {
+  border-color: var(--color-x);
+  filter: drop-shadow(0 0 4px var(--color-x-glow));
+}
+
+.playerCardO.activeUser .userDiv {
+  border-color: var(--color-o);
+  box-shadow: 0 0 24px var(--color-o-glow), inset 0 0 16px var(--color-o-bg);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.playerCardO.activeUser .head,
+.playerCardO.activeUser .body {
+  border-color: var(--color-o);
+  filter: drop-shadow(0 0 4px var(--color-o-glow));
+}
+
+/* Winner Celebration State */
+.winnerUser .userDiv {
+  border-color: var(--color-success);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+  animation: winnerGlow 1.4s infinite alternate;
+}
+
+@keyframes pulseDotAnim {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+@keyframes winnerGlow {
+  0% { transform: translateY(-4px); }
+  100% { transform: translateY(-6px); }
+}
+
+@media (max-width: 480px) {
+  .user {
+    width: 130px;
+    height: 145px;
+  }
+}
